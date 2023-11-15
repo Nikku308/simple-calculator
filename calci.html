@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calci</title>
+    <style>
+        .container{
+            display: grid;
+            width: 400px;
+            margin: auto;
+            grid-template-columns: auto auto auto auto;
+            background-color: rgb(131, 129, 129);
+            gap: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            /* margin: 10px; */
+        }
+        .container>div{
+            background-color: black;
+            color: aliceblue;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow:2px 2px rgb(73, 71, 71) ;
+            text-align: center;
+           
+        }
+        #space{
+           grid-column-start: 1; 
+           grid-column-end: 4;
+           padding: 10px;
+           background-color: white;
+            border: 1px solid black;
+        }
+        #cross{
+            background-color: rgb(252, 251, 251);
+            color: aliceblue;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 0px;
+            box-shadow:2px 2px rgb(73, 71, 71) ;
+            text-align: center;
+        }
+        #equal{
+            background-color: brown;
+        }
+        div :hover{
+            background-color: rgb(51, 48, 48);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+       
+        <input id="space">
+        <button onclick="clears()" id="cross">&#10060;</button>
+        <div onclick="number('1')">1</div>
+        <div onclick="number('2')">2</div>
+        <div onclick="number('3')">3</div>
+        <div onclick="number('+')">+</div>
+        <div onclick="number('4')">4</div>
+        <div onclick="number('5')">5</div>
+        <div onclick="number('6')">6</div>
+        <div onclick="number('-')">-</div>
+        <div onclick="number('7')">7</div>
+        <div onclick="number('8')">8</div>
+        <div onclick="number('9')">9</div>
+        <div onclick="number('*')"> *</div>
+        <div onclick="number('.')">.</div>
+        <div onclick="number('0')"> 0</div>
+        <div  onclick="res()" id="equal">=</div>
+        <div onclick="number('/')">/</div>
+    </div>
+    <script>
+       function number(num){
+        document.getElementById("space").value+=num;
+       }
+       function clears(){
+        document.getElementById("space").value="";
+       }
+       function res(){
+        var a=document.getElementById("space").value;
+        var b=eval(a);
+        document.getElementById("space").value=b;
+       }
+    </script>
+</body>
+</html>
